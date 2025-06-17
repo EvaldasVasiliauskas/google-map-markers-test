@@ -65,7 +65,7 @@ let data = {
 		id: 2,
 		title: 'Stendas 2',
 		typeId: 1,
-		groupId: 2,
+		groupId: 1,
 		description: 'aprasymas jei reikia',
 		img: 'https://images.pexels.com/photos/1031700/pexels-photo-1031700.jpeg',
 		lat: 54.9296,
@@ -75,10 +75,39 @@ let data = {
 		id: 3,
 		title: 'Stendas 3',
 		typeId: 1,
-		groupId: 3,
-		title: 'cia gal miestas 3',
+		groupId: 2,
 		description: 'aprasymas jei reikia',
 		img: 'https://images.pexels.com/photos/2448522/pexels-photo-2448522.jpeg',
+		lat: 54.6961,
+		lng: 25.2986
+	},
+	{
+		id: 4,
+		title: 'Stendas 4',
+		typeId: 1,
+		groupId: 2,
+		description: 'aprasymas jei reikia',
+		img: 'https://images.pexels.com/photos/1137511/pexels-photo-1137511.jpeg',
+		lat: 54.6961,
+		lng: 25.2986
+	},
+	{
+		id: 5,
+		title: 'Stendas 5',
+		typeId: 1,
+		groupId: 2,
+		description: 'aprasymas jei reikia',
+		img: 'https://images.pexels.com/photos/1058276/pexels-photo-1058276.jpeg',
+		lat: 54.6961,
+		lng: 25.2986
+	},
+	{
+		id: 6,
+		title: 'Stendas 6',
+		typeId: 1,
+		groupId: 3,
+		description: 'aprasymas jei reikia',
+		img: 'https://images.pexels.com/photos/2591761/pexels-photo-2591761.jpeg',
 		lat: 54.6961,
 		lng: 25.2986
 	}]
@@ -124,7 +153,7 @@ function initMap(containerId) {
   const container = document.getElementById(containerId);
   if (!container) throw new Error(`#${containerId} not found`);
 
-  const center = { lat: 55.360307, lng: 24.095800 }; // NYC
+  const center = { lat: 55.360307, lng: 24.095800 };
 
   map = new google.maps.Map(container, {
     zoom: 7,
