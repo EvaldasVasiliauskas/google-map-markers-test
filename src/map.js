@@ -1,5 +1,6 @@
 let map;
 let markers = [];
+let activeInfoWindow = null;
 
 let data = {
 	types: [
@@ -68,8 +69,8 @@ let data = {
 		groupId: 1,
 		description: 'aprasymas jei reikia',
 		img: 'https://images.pexels.com/photos/1031700/pexels-photo-1031700.jpeg',
-		lat: 54.9296,
-		lng: 23.8892
+		lat: 55.687802,
+		lng: 21.140623
 	},
 	{
 		id: 3,
@@ -78,8 +79,8 @@ let data = {
 		groupId: 2,
 		description: 'aprasymas jei reikia',
 		img: 'https://images.pexels.com/photos/2448522/pexels-photo-2448522.jpeg',
-		lat: 54.6961,
-		lng: 25.2986
+		lat: 54.915137,
+		lng: 23.889044
 	},
 	{
 		id: 4,
@@ -88,8 +89,8 @@ let data = {
 		groupId: 2,
 		description: 'aprasymas jei reikia',
 		img: 'https://images.pexels.com/photos/1137511/pexels-photo-1137511.jpeg',
-		lat: 54.6961,
-		lng: 25.2986
+		lat: 54.912261,
+		lng: 23.935949
 	},
 	{
 		id: 5,
@@ -98,8 +99,8 @@ let data = {
 		groupId: 2,
 		description: 'aprasymas jei reikia',
 		img: 'https://images.pexels.com/photos/1058276/pexels-photo-1058276.jpeg',
-		lat: 54.6961,
-		lng: 25.2986
+		lat: 54.937347,
+		lng: 23.898592
 	},
 	{
 		id: 6,
@@ -108,8 +109,8 @@ let data = {
 		groupId: 3,
 		description: 'aprasymas jei reikia',
 		img: 'https://images.pexels.com/photos/2591761/pexels-photo-2591761.jpeg',
-		lat: 54.6961,
-		lng: 25.2986
+		lat: 54.698678,
+		lng: 25.265185
 	}]
 }
 
@@ -239,6 +240,9 @@ function showItemMarkers(data, groupId) {
     `;
 
     const marker = new HtmlMarker(position, html, () => {
+      if (activeInfoWindow) {
+        activeInfoWindow.close();
+      }
       const infoWindow = new google.maps.InfoWindow({
         content: `
           <div style="max-width: 200px; max-height: 300px; padding: 12px; color: #333; box-sizing: border-box;">
@@ -251,6 +255,7 @@ function showItemMarkers(data, groupId) {
 
       infoWindow.setPosition(position);
       infoWindow.open(map);
+      activeInfoWindow = infoWindow;
     });
 
     markers.push(marker);
